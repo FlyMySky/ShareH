@@ -3,7 +3,7 @@ package com.skwen.foru.connotationmodule.alone
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import com.skwen.foru.connotationmodule.ConnotationFragment
-import com.skwen.foru.recommendmodule.R
+import com.skwen.foru.connotationmodule.R
 
 class MainActivity : AppCompatActivity() {
 

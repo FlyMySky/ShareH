@@ -34,6 +34,7 @@ object Versions {
     const val rxJavaVersion = "2.2.2"
     const val rxAndroidVersion = "2.1.0"
     const val glideVersion = "4.8.0"
+    const val circleimageviewVersion = "2.2.0"
 }
 
 object Deps {
@@ -72,5 +73,8 @@ object Deps {
     //glide
     const val glide = "com.github.bumptech.glide:glide:${Versions.glideVersion}"
     const val glidecompiler = "com.github.bumptech.glide:compiler:${Versions.glideVersion}"
+
+    //circleimageview
+    const val circleimageview = "de.hdodenhof:circleimageview:${Versions.circleimageviewVersion}"
 
 }

@@ -1,19 +1,30 @@
 package com.skwen.foru.connotationmodule
 
+import android.support.design.widget.TabLayout
 import com.skwen.foru.basemodule.base.BaseFragment
+import com.skwen.foru.connotationmodule.adapter.ConnotationPagerAdapter
+import com.skwen.foru.connotationmodule.util.TabUtil
+import kotlinx.android.synthetic.main.fragment_connotation.*
 
-class ConnotationFragment:BaseFragment(){
+class ConnotationFragment : BaseFragment() {
+
+    private var mutableList = TabUtil.getMainTabData()
 
     override fun getLayoutRes(): Int {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        return R.layout.fragment_connotation
     }
 
     override fun initViews() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        tabLayout.tabMode = TabLayout.MODE_FIXED
+        mutableList.forEach {
+            tabLayout.addTab(tabLayout.newTab().setText(it.title))
+        }
+        viewPager.adapter = ConnotationPagerAdapter(childFragmentManager, mutableList)
+        tabLayout.setupWithViewPager(viewPager)
     }
 
     override fun lazyFetchData() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+
     }
 
 }

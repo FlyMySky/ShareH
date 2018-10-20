@@ -52,4 +52,11 @@ dependencies {
     api Deps.rxjava2
     api Deps.rxandroid
 
+    //glide
+    api Deps.glide
+    annotationProcessor Deps.glidecompiler
+
+    //circleimageview
+    api Deps.circleimageview
+
 }
