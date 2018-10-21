@@ -20,7 +20,7 @@ object Versions {
     const val espressoVersion = "3.0.2"
 
     const val kotlinVersion = "1.2.71"
-    const val buildGradleVersion = "3.2.0-rc03"
+    const val buildGradleVersion = "3.2.1"
 
     const val appcompatVersion = "28.0.0"
     const val constraintLayoutVersion = "1.1.3"
