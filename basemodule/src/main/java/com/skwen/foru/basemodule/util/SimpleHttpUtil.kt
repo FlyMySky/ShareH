@@ -12,6 +12,10 @@ class SimpleHttpUtil private constructor() {
         var instance = SimpleHttpUtil()
     }
 
+    companion object {
+        fun getInstance() = Holder.instance
+    }
+
     init {
         initHttp()
     }
@@ -24,13 +28,6 @@ class SimpleHttpUtil private constructor() {
                 .build()
 
     }
-
-    companion object {
-        fun getInstance(): SimpleHttpUtil {
-            return Holder.instance
-        }
-    }
-
 
     fun <T> getApi(service:Class<T>) : T{
         return retrofit!!.create(service)

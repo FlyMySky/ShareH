@@ -16,11 +16,11 @@ class CommonAdapter(mutableList: MutableList<ContentBean>) : BaseAdapter<Content
 
     override fun getLayoutRes(viewType: Int): Int {
         return when (viewType) {
-            TabUtil.type_text -> R.layout.fragment_child_text
-            TabUtil.type_img -> R.layout.fragment_child_img
-            TabUtil.type_gif -> R.layout.fragment_child_gif
-            TabUtil.type_video -> R.layout.fragment_child_video
-            else -> R.layout.fragment_child_text
+            TabUtil.type_text -> R.layout.connotation_module_fragment_child_text
+            TabUtil.type_img -> R.layout.connotation_module_fragment_child_img
+            TabUtil.type_gif -> R.layout.connotation_module_fragment_child_gif
+            TabUtil.type_video -> R.layout.connotation_module_fragment_child_video
+            else -> R.layout.connotation_module_fragment_child_text
         }
     }
 

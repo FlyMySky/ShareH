@@ -1,11 +1,11 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="recommend_module_AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorPrimary">@color/recommend_module_colorPrimary</item>
+        <item name="colorPrimaryDark">@color/recommend_module_colorPrimaryDark</item>
+        <item name="colorAccent">@color/recommend_module_colorAccent</item>
     </style>
 
 </resources>

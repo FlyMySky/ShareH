@@ -5,11 +5,12 @@ import android.widget.ImageView
 import android.widget.TextView
 import com.bumptech.glide.Glide
 import com.skwen.foru.basemodule.base.holder.BaseHolder
+import com.skwen.foru.basemodule.util.ImageUtil
 import com.skwen.foru.connotationmodule.R
 import com.skwen.foru.connotationmodule.model.ContentBean
 import de.hdodenhof.circleimageview.CircleImageView
 
-class ImageHolder(itemView: View) : BaseHolder<ContentBean>(itemView){
+class ImageHolder(itemView: View) : BaseHolder<ContentBean>(itemView) {
     private var item_image: CircleImageView? = null
     private var item_name: TextView? = null
     private var item_time: TextView? = null
@@ -34,19 +35,11 @@ class ImageHolder(itemView: View) : BaseHolder<ContentBean>(itemView){
 
 
     override fun bindData(item: ContentBean) {
-        Glide
-                .with(itemView.context)
-                .asBitmap()
-                .load(item.header)
-                .into(this.item_image!!)
+        ImageUtil.getInstance().loadSimpleImage(item_image!!, item.header)
         item_name?.text = item.username
         item_time?.text = item.passtime
         item_content?.text = item.text
-        Glide
-                .with(itemView.context)
-                .asBitmap()
-                .load(item.image)
-                .into(this.item_content_image!!)
+        ImageUtil.getInstance().loadSimpleImage(item_content_image!!, item.image)
         item_digger?.text = item.up.toString()
         item_bury?.text = item.down.toString()
         item_comment?.text = item.comment.toString()

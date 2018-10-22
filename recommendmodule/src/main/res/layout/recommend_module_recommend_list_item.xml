@@ -41,7 +41,7 @@
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_centerInParent="true"
-                android:background="@mipmap/recommend_video_item_play_btn" />
+                android:background="@mipmap/recommend_module_recommend_video_item_play_btn" />
         </RelativeLayout>
     </LinearLayout>
 

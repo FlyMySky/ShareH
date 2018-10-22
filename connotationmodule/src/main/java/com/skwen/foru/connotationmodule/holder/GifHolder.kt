@@ -5,6 +5,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import com.bumptech.glide.Glide
 import com.skwen.foru.basemodule.base.holder.BaseHolder
+import com.skwen.foru.basemodule.util.ImageUtil
 import com.skwen.foru.connotationmodule.R
 import com.skwen.foru.connotationmodule.model.ContentBean
 import de.hdodenhof.circleimageview.CircleImageView
@@ -36,20 +37,11 @@ class GifHolder(itemView: View) : BaseHolder<ContentBean>(itemView) {
 
     override fun bindData(item: ContentBean) {
 
-        Glide
-                .with(itemView.context)
-                .asBitmap()
-                .load(item.header)
-                .into(this.item_image!!)
+        ImageUtil.getInstance().loadSimpleImage(item_image!!, item.header)
         item_name?.text = item.username
         item_time?.text = item.passtime
         item_content?.text = item.text
-        Glide
-                .with(itemView.context)
-                .asGif()
-                .load(item.gif)
-                .into(this.item_content_image!!)
-
+        ImageUtil.getInstance().loadSimpleImage(item_content_image!!, item.gif)
         item_digger?.text = item.up.toString()
         item_bury?.text = item.down.toString()
         item_comment?.text = item.comment.toString()

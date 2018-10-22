@@ -10,7 +10,7 @@
         android:padding="8dp"
         android:orientation="vertical">
 
-        <include layout="@layout/fragment_child_item_user" />
+        <include layout="@layout/connotation_module_fragment_child_item_user" />
 
         <TextView
             android:id="@+id/item_content"
@@ -20,15 +20,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
-        <ImageView
-            android:id="@+id/item_content_image"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginTop="8dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-        <include layout="@layout/fragment_child_item_bottom" />
+        <include layout="@layout/connotation_module_fragment_child_item_bottom" />
 
     </LinearLayout>
 

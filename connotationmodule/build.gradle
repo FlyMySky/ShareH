@@ -37,6 +37,8 @@ android {
         }
     }
 
+    resourcePrefix "connotation_module_"
+
 }
 
 dependencies {

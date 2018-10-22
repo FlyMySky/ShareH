@@ -10,7 +10,7 @@ import com.skwen.foru.recommendmodule.model.recommend.Result
 class RecommendAdapter(private var list: MutableList<Result>) : RecyclerView.Adapter<RecommendHolder>(){
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): RecommendHolder {
-        return RecommendHolder(LayoutInflater.from(viewGroup.context).inflate(R.layout.recommend_list_item,viewGroup,false))
+        return RecommendHolder(LayoutInflater.from(viewGroup.context).inflate(R.layout.recommend_module_recommend_list_item,viewGroup,false))
     }
 
     override fun getItemCount(): Int {

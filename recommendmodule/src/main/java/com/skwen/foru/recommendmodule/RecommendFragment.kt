@@ -5,7 +5,7 @@ import com.skwen.foru.recommendmodule.adapter.RecommendAdapter
 import com.skwen.foru.recommendmodule.http.HttpUtil
 import com.skwen.foru.recommendmodule.model.recommend.Result
 import com.skwen.foru.recommendmodule.model.recommend.ResultRecommend
-import kotlinx.android.synthetic.main.recommend_fragment.*
+import kotlinx.android.synthetic.main.recommend_module_recommend_fragment.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -15,7 +15,7 @@ class RecommendFragment : BaseFragment() {
     private var list: MutableList<Result> = mutableListOf()
 
     override fun getLayoutRes(): Int {
-        return R.layout.recommend_fragment
+        return R.layout.recommend_module_recommend_fragment
     }
 
 

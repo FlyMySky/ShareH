@@ -8,11 +8,11 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:icon="@mipmap/connotation_module_ic_launcher"
+        android:label="@string/connotation_module_app_name"
+        android:roundIcon="@mipmap/connotation_module_ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme"
+        android:theme="@style/connotation_module_AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
         <activity android:name=".alone.MainActivity">
             <intent-filter>

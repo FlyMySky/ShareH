@@ -8,11 +8,12 @@ import android.widget.TextView
 import android.widget.VideoView
 import com.bumptech.glide.Glide
 import com.skwen.foru.basemodule.base.holder.BaseHolder
+import com.skwen.foru.basemodule.util.ImageUtil
 import com.skwen.foru.connotationmodule.R
 import com.skwen.foru.connotationmodule.model.ContentBean
 import de.hdodenhof.circleimageview.CircleImageView
 
-class VideoHolder(itemView: View) : BaseHolder<ContentBean>(itemView){
+class VideoHolder(itemView: View) : BaseHolder<ContentBean>(itemView) {
 
     private var item_image: CircleImageView? = null
     private var item_name: TextView? = null
@@ -38,11 +39,7 @@ class VideoHolder(itemView: View) : BaseHolder<ContentBean>(itemView){
 
 
     override fun bindData(item: ContentBean) {
-        Glide
-                .with(itemView.context)
-                .asBitmap()
-                .load(item.header)
-                .into(this.item_image!!)
+        ImageUtil.getInstance().loadSimpleImage(item_image!!, item.header)
         item_name?.text = item.username
         item_time?.text = item.passtime
 

@@ -21,6 +21,8 @@ android {
         }
     }
 
+    resourcePrefix "base_module_"
+
 }
 
 dependencies {

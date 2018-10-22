@@ -7,7 +7,7 @@ import com.skwen.foru.connotationmodule.adapter.CommonAdapter
 import com.skwen.foru.connotationmodule.http.HttpUtil
 import com.skwen.foru.connotationmodule.model.ContentBean
 import com.skwen.foru.connotationmodule.model.ResultBean
-import kotlinx.android.synthetic.main.fragment_child.*
+import kotlinx.android.synthetic.main.connotation_module_fragment_child.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -20,7 +20,7 @@ class CommonFragment : BaseFragment() {
     private var mAdapter: CommonAdapter? = null
 
     override fun getLayoutRes(): Int {
-        return R.layout.fragment_child
+        return R.layout.connotation_module_fragment_child
     }
 
     override fun initViews() {

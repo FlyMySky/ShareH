@@ -4,14 +4,14 @@ import android.support.design.widget.TabLayout
 import com.skwen.foru.basemodule.base.BaseFragment
 import com.skwen.foru.connotationmodule.adapter.ConnotationPagerAdapter
 import com.skwen.foru.connotationmodule.util.TabUtil
-import kotlinx.android.synthetic.main.fragment_connotation.*
+import kotlinx.android.synthetic.main.connotation_module_fragment_connotation.*
 
 class ConnotationFragment : BaseFragment() {
 
     private var mutableList = TabUtil.getMainTabData()
 
     override fun getLayoutRes(): Int {
-        return R.layout.fragment_connotation
+        return R.layout.connotation_module_fragment_connotation
     }
 
     override fun initViews() {

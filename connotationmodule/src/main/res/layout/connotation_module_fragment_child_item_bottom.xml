@@ -15,7 +15,7 @@
             android:id="@+id/item_digger"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:drawableLeft="@mipmap/ic_digg_normal"
+            android:drawableLeft="@mipmap/connotation_module_ic_digg_normal"
             android:gravity="center_vertical"
             android:hint="100" />
     </LinearLayout>
@@ -30,7 +30,7 @@
             android:id="@+id/item_bury"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:drawableLeft="@mipmap/ic_bury_normal"
+            android:drawableLeft="@mipmap/connotation_module_ic_bury_normal"
             android:gravity="center_vertical"
             android:hint="100" />
     </LinearLayout>
@@ -45,7 +45,7 @@
             android:id="@+id/item_comment"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:drawableLeft="@mipmap/ic_item_comment"
+            android:drawableLeft="@mipmap/connotation_module_ic_item_comment"
             android:gravity="center_vertical"
             android:hint="100" />
     </LinearLayout>
@@ -60,7 +60,7 @@
             android:id="@+id/item_share"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:drawableLeft="@mipmap/ic_share_detail_comment_gray"
+            android:drawableLeft="@mipmap/connotation_module_ic_share_detail_comment_gray"
             android:gravity="center_vertical"
             android:hint="100" />
     </LinearLayout>
