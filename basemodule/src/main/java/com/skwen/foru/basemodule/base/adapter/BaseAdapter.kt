@@ -29,7 +29,7 @@ abstract class BaseAdapter<T>(var mutableList: MutableList<T>): RecyclerView.Ada
     }
 
     override fun onBindViewHolder(holder: BaseHolder<T>, position: Int) {
-        holder.bindData(mutableList[position])
+        holder.bindData(mutableList[position],position)
         holder.itemView.setOnClickListener {
             onRecyclerViewClick!!.onItemClick(position,mutableList[position])
         }

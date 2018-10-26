@@ -33,7 +33,7 @@ class TextHolder(itemView: View) : BaseHolder<ContentBean>(itemView){
     }
 
 
-    override fun bindData(item: ContentBean) {
+    override fun bindData(item: ContentBean, position: Int) {
         ImageUtil.getInstance().loadSimpleImage(item_image!!, item.header)
         item_name?.text = item.username
         item_time?.text = item.passtime

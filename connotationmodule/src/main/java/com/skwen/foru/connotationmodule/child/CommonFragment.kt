@@ -1,5 +1,8 @@
 package com.skwen.foru.connotationmodule.child
 
+import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.RecyclerView
+import com.shuyu.gsyvideoplayer.GSYVideoManager
 import com.skwen.foru.basemodule.base.BaseFragment
 import com.skwen.foru.basemodule.base.inter.OnRecyclerViewClick
 import com.skwen.foru.connotationmodule.R
@@ -32,6 +35,50 @@ class CommonFragment : BaseFragment() {
                 print(obj.toString())
             }
         })
+
+        recyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+
+            override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
+                super.onScrollStateChanged(recyclerView, newState)
+                when (newState) {
+                    RecyclerView.SCROLL_STATE_IDLE //滚动停止
+                    -> {
+                    }
+                    RecyclerView.SCROLL_STATE_DRAGGING //手指拖动
+                    -> {
+                    }
+                    RecyclerView.SCROLL_STATE_SETTLING //惯性滚动
+                    -> {
+                    }
+                }
+            }
+
+            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                super.onScrolled(recyclerView, dx, dy)
+
+                val linearLayoutManager = recyclerView.layoutManager as LinearLayoutManager?
+                val firstVisibleItem = linearLayoutManager!!.findFirstVisibleItemPosition()
+                val lastVisibleItem = linearLayoutManager.findLastVisibleItemPosition()
+
+                //大于0说明有播放
+                if (GSYVideoManager.instance().playPosition >= 0) {
+                    //当前播放的位置
+                    val position = GSYVideoManager.instance().playPosition
+                    //对应的播放列表TAG
+                    if (GSYVideoManager.instance().playTag == CommonAdapter.TAG && (position < firstVisibleItem || position > lastVisibleItem)) {
+                        if (GSYVideoManager.isFullState(activity)) {
+                            return
+                        }
+                        //如果滑出去了上面和下面就是否，和今日头条一样
+                        GSYVideoManager.releaseAllVideos()
+                        mAdapter!!.notifyDataSetChanged()
+                    }
+                }
+
+            }
+
+        })
+
     }
 
     override fun lazyFetchData() {
@@ -49,4 +96,16 @@ class CommonFragment : BaseFragment() {
             }
         })
     }
+
+    override fun onPause() {
+        super.onPause()
+        GSYVideoManager.onPause()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        GSYVideoManager.onResume()
+    }
+
+
 }

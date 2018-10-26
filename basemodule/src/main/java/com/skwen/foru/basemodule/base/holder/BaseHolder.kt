@@ -10,6 +10,6 @@ abstract class BaseHolder<T>(itemView: View) : RecyclerView.ViewHolder(itemView)
         return itemView.findViewById(id)
     }
 
-    abstract fun bindData(item: T)
+    abstract fun bindData(item: T,position:Int)
 
 }

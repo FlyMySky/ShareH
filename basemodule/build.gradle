@@ -35,6 +35,7 @@ dependencies {
     api Deps.kotlinStdlibJdk7
     //support
     api Deps.appcompatV7
+    api Deps.appcompatV4
     api Deps.constraintLayout
     api Deps.supportAnnotations
     api Deps.design
@@ -61,4 +62,6 @@ dependencies {
     //circleimageview
     api Deps.circleimageview
 
+    //GSYVideoPlayer
+    api Deps.gsyVideoPlayer
 }

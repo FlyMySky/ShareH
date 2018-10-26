@@ -13,7 +13,6 @@ import com.skwen.foru.connotationmodule.util.TabUtil
 
 class CommonAdapter(mutableList: MutableList<ContentBean>) : BaseAdapter<ContentBean>(mutableList) {
 
-
     override fun getLayoutRes(viewType: Int): Int {
         return when (viewType) {
             TabUtil.type_text -> R.layout.connotation_module_fragment_child_text
@@ -42,6 +41,10 @@ class CommonAdapter(mutableList: MutableList<ContentBean>) : BaseAdapter<Content
             TabUtil.type_video -> VideoHolder(view)
             else -> TextHolder(view)
         }
+    }
+
+    companion object {
+        const val TAG = "CommonAdapter"
     }
 
 }

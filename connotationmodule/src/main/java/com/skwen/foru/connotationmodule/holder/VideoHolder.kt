@@ -1,25 +1,26 @@
 package com.skwen.foru.connotationmodule.holder
 
-import android.net.Uri
 import android.view.View
 import android.widget.ImageView
-import android.widget.MediaController
 import android.widget.TextView
-import android.widget.VideoView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
+import com.shuyu.gsyvideoplayer.video.StandardGSYVideoPlayer
 import com.skwen.foru.basemodule.base.holder.BaseHolder
 import com.skwen.foru.basemodule.util.ImageUtil
 import com.skwen.foru.connotationmodule.R
+import com.skwen.foru.connotationmodule.adapter.CommonAdapter
 import com.skwen.foru.connotationmodule.model.ContentBean
 import de.hdodenhof.circleimageview.CircleImageView
 
 class VideoHolder(itemView: View) : BaseHolder<ContentBean>(itemView) {
 
+
     private var item_image: CircleImageView? = null
     private var item_name: TextView? = null
     private var item_time: TextView? = null
     private var item_content: TextView? = null
-    private var item_content_video: VideoView? = null
+    private var gsyVideoPlayer: StandardGSYVideoPlayer? = null
     private var item_digger: TextView? = null
     private var item_bury: TextView? = null
     private var item_comment: TextView? = null
@@ -30,7 +31,7 @@ class VideoHolder(itemView: View) : BaseHolder<ContentBean>(itemView) {
         item_name = getView(R.id.item_name)
         item_time = getView(R.id.item_time)
         item_content = getView(R.id.item_content)
-        item_content_video = getView(R.id.item_content_video)
+        gsyVideoPlayer = getView(R.id.item_content_video)
         item_digger = getView(R.id.item_digger)
         item_bury = getView(R.id.item_bury)
         item_comment = getView(R.id.item_comment)
@@ -38,15 +39,15 @@ class VideoHolder(itemView: View) : BaseHolder<ContentBean>(itemView) {
     }
 
 
-    override fun bindData(item: ContentBean) {
+    override fun bindData(item: ContentBean, position: Int) {
         ImageUtil.getInstance().loadSimpleImage(item_image!!, item.header)
         item_name?.text = item.username
         item_time?.text = item.passtime
 
         item_content?.text = item.text
-        item_content_video?.setMediaController(MediaController(itemView.context))
-        item_content_video?.setVideoURI(Uri.parse(item.video))
-//        item_content_video?.start()
+
+        setVideoPlayer(item.video, position)
+
         item_digger?.text = item.up.toString()
         item_bury?.text = item.down.toString()
         item_comment?.text = item.comment.toString()
@@ -54,4 +55,50 @@ class VideoHolder(itemView: View) : BaseHolder<ContentBean>(itemView) {
 
     }
 
+
+    private fun setVideoPlayer(url: String, position: Int) {
+        gsyVideoPlayer?.setUpLazy(url, true, null, null, "")
+        //增加title
+        gsyVideoPlayer?.titleTextView!!.visibility = View.GONE
+        //设置返回键
+        gsyVideoPlayer?.backButton!!.visibility = View.GONE
+        //设置全屏按键功能
+        gsyVideoPlayer?.fullscreenButton!!.setOnClickListener { _: View? ->
+            gsyVideoPlayer!!.startWindowFullscreen(itemView.context, false, true);
+        }
+        //防止错位设置
+        gsyVideoPlayer?.playTag = CommonAdapter.TAG
+        gsyVideoPlayer?.playPosition = position
+        //是否根据视频尺寸，自动选择竖屏全屏或者横屏全屏
+        gsyVideoPlayer?.isAutoFullWithSize = true
+        //音频焦点冲突时是否释放
+        gsyVideoPlayer?.isReleaseWhenLossAudio = false
+        //全屏动画
+        gsyVideoPlayer?.isShowFullAnimation = true
+        //小屏时不触摸滑动
+        gsyVideoPlayer?.setIsTouchWiget(false)
+
+        gsyVideoPlayer?.startPlayLogic()
+
+        val imageView = ImageView(itemView.context)
+        loadCover(imageView, url)
+        gsyVideoPlayer?.thumbImageView = imageView
+    }
+
+    private fun loadCover(imageView: ImageView, url: String) {
+
+        imageView.scaleType = ImageView.ScaleType.CENTER_CROP
+        //        imageView.setImageResource(R.mipmap.xxx1);
+
+        Glide.with(imageView.context)
+                .setDefaultRequestOptions(
+                        RequestOptions()
+                                .frame(1000)
+                                .centerCrop()
+                        //                                .error(R.mipmap.xxx2)
+                        //                                .placeholder(R.mipmap.xxx1)
+                )
+                .load(url)
+                .into(imageView)
+    }
 }

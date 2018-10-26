@@ -13,8 +13,12 @@
         android:roundIcon="@mipmap/connotation_module_ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/connotation_module_AppTheme"
-        tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".alone.MainActivity">
+        tools:ignore="GoogleAppIndexingWarning"
+        tools:replace="label,allowBackup">
+        <activity android:name=".alone.MainActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="portrait"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

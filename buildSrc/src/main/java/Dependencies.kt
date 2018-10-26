@@ -1,11 +1,9 @@
-
-
 object Androids {
     const val compileSdkVersion = 28
     const val applicationId = "com.skwen.foru"
     const val recommendApplicationId = "com.skwen.foru.recommendmodule"
     const val connotationApplicationId = "com.skwen.foru.connotationmodule"
-    const val minSdkVersion = 14
+    const val minSdkVersion = 16
     const val targetSdkVersion = 28
     const val versionCode = 1
     const val versionName = "1.0"
@@ -35,6 +33,7 @@ object Versions {
     const val rxAndroidVersion = "2.1.0"
     const val glideVersion = "4.8.0"
     const val circleimageviewVersion = "2.2.0"
+    const val gsyVideoPlayerVersion = "6.0.1"
 }
 
 object Deps {
@@ -51,6 +50,7 @@ object Deps {
 
     //support
     const val appcompatV7 = "com.android.support:appcompat-v7:${Versions.appcompatVersion}"
+    const val appcompatV4 = "com.android.support:support-v4:${Versions.appcompatVersion}"
     const val supportAnnotations = "com.android.support:support-annotations:${Versions.appcompatVersion}"
     const val design = "com.android.support:design:${Versions.appcompatVersion}"
     const val recyclerview = "com.android.support:recyclerview-v7:${Versions.appcompatVersion}"
@@ -77,4 +77,6 @@ object Deps {
     //circleimageview
     const val circleimageview = "de.hdodenhof:circleimageview:${Versions.circleimageviewVersion}"
 
+    //GSYVideoPlayer
+    const val gsyVideoPlayer = "com.shuyu:GSYVideoPlayer:${Versions.gsyVideoPlayerVersion}"
 }
