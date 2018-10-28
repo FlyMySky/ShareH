@@ -3,4 +3,5 @@
     <color name="connotation_module_colorPrimary">#008577</color>
     <color name="connotation_module_colorPrimaryDark">#00574B</color>
     <color name="connotation_module_colorAccent">#D81B60</color>
+    <color name="connotation_module_float_button">#FFFFFF</color>
 </resources>

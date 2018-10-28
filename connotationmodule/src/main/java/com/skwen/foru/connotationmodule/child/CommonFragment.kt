@@ -1,15 +1,21 @@
 package com.skwen.foru.connotationmodule.child
 
+import android.annotation.SuppressLint
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import com.shuyu.gsyvideoplayer.GSYVideoManager
 import com.skwen.foru.basemodule.base.BaseFragment
 import com.skwen.foru.basemodule.base.inter.OnRecyclerViewClick
+import com.skwen.foru.basemodule.util.rx.RxBus
 import com.skwen.foru.connotationmodule.R
 import com.skwen.foru.connotationmodule.adapter.CommonAdapter
+import com.skwen.foru.connotationmodule.event.RxEvent
 import com.skwen.foru.connotationmodule.http.HttpUtil
 import com.skwen.foru.connotationmodule.model.ContentBean
 import com.skwen.foru.connotationmodule.model.ResultBean
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.functions.Consumer
+import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.connotation_module_fragment_child.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -26,6 +32,7 @@ class CommonFragment : BaseFragment() {
         return R.layout.connotation_module_fragment_child
     }
 
+    @SuppressLint("CheckResult")
     override fun initViews() {
         type = arguments?.get("type") as Int
         mAdapter = CommonAdapter(mutableList)
@@ -76,8 +83,13 @@ class CommonFragment : BaseFragment() {
                 }
 
             }
-
         })
+
+        RxBus.getInstance()
+                .subscribe(RxEvent.OnRefreshEvent::class.java)
+                .observeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe { lazyFetchData() }
 
     }
 
